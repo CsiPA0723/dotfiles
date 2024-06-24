@@ -1,0 +1,7 @@
+[font]
+normal = ["Iosevka Term"]
+size = 15
+
+tabs = false
+srgb = true
+theme = "auto"

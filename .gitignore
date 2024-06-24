@@ -1,5 +1,24 @@
-**/**/*
+/*
 
 !.gitignore
 !.gitmodules
+
+# Submodules
 !/nvim
+
+# Dirs
+!/kitty
+!/lazygit
+!/mpv
+!/neovide
+!/pipewire
+!/rog
+!/speech-dispatcher
+!/spicetify
+!/tmux
+/tmux/plugins
+!/yazi
+
+# Files
+!/spotify-launcher.conf
+!/vivaldi-stable.conf
