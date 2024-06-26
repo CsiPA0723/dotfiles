@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 ZLE_RPROMPT_INDENT=0
 
@@ -143,7 +143,10 @@ unset key
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # eval "$(oh-my-posh init --config 'https://raw.githubusercontent.com/CsiPA0723/csipa0723/main/config.omp.json' zsh)"
 
-eval "$(oh-my-posh init --config ~/Personal/CsiPA0723/config.omp.toml zsh)"
+OMP_CONFIG=$HOME/Personal/CsiPA0723/home.omp.toml
+[[ -f $OMP_CONFIG ]] || OMP_CONFIG="https://raw.githubusercontent.com/CsiPA0723/csipa0723/main/home.omp.toml"
+
+eval "$(oh-my-posh init --config $OMP_CONFIG zsh)"
 
 export GREP_COLORS='ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36'
 
