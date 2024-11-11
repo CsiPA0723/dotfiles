@@ -185,6 +185,14 @@ alias lx='ll -X'
 
 alias tree='eza --tree'
 
+alias :q='exit'
+alias :qa='exit'
+
+
+# KDE Logout function
+fpath=(~/.config/zsh-config/kde-logout $fpath)
+autoload -Uz kde
+
 alias cat='bat '
 
 alias zz='z -'
