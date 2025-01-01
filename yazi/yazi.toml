@@ -3,6 +3,3 @@ scrolloff = 10
 
 [preview]
 tab_size = 2
-
-[plugin]
-prepend_previewers = [{ name = "*/", run = "eza-preview" }]
