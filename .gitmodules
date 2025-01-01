@@ -2,6 +2,3 @@
 	path = nvim
 	url = git@github.com:CsiPA0723/nvim-config.git
 
-[submodule "yazi-plugin-eza-preview"]
-  path = yazi/plugins/eza-preview.yazi
-  url = https://github.com/sharklasers996/eza-preview.yazi.git
