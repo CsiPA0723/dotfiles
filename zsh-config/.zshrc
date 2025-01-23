@@ -158,6 +158,7 @@ if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
 fi
 
 alias sudo='sudo '
+alias fwcli='sudo firewall-cmd '
 
 # -----------------------------
 # Yazi
@@ -194,7 +195,9 @@ alias tree='eza --tree'
 
 alias :q='exit'
 alias :qa='exit'
-
+alias :wq='exit'
+alias :wqa='exit'
+alias clr='clear'
 
 # KDE Logout function
 fpath=(~/.config/zsh-config/kde-logout $fpath)
