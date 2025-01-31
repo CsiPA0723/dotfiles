@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 ZLE_RPROMPT_INDENT=0
 
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#8839ef'
@@ -140,8 +133,7 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# eval "$(oh-my-posh init --config 'https://raw.githubusercontent.com/CsiPA0723/csipa0723/main/config.omp.json' zsh)"
+# Prompt & Colors {{{
 
 OMP_CONFIG=$HOME/Personal/CsiPA0723/home.omp.toml
 [[ -f $OMP_CONFIG ]] || OMP_CONFIG="https://raw.githubusercontent.com/CsiPA0723/csipa0723/main/home.omp.toml"
@@ -150,12 +142,27 @@ eval "$(oh-my-posh init --config $OMP_CONFIG zsh)"
 
 export GREP_COLORS='ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36'
 
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--color=selected-bg:#494d64 \
+--multi"
+
+# }}}
+
+# Kitty integration {{{
+
 if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
   export KITTY_SHELL_INTEGRATION="enabled"
   autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
   kitty-integration
   unfunction kitty-integration
 fi
+
+# }}}
+
+# Aliases {{{
 
 alias sudo='sudo '
 alias fwcli='sudo firewall-cmd '
@@ -199,16 +206,27 @@ alias :wq='exit'
 alias :wqa='exit'
 alias clr='clear'
 
+alias cat='bat '
+
+alias zz='z -'
+
+alias ssh='kitten ssh '
+alias d='kitten diff '
+alias gd='git difftool --no-symlinks --dir-diff'
+
+# }}}
+
 # KDE Logout function
 fpath=(~/.config/zsh-config/kde-logout $fpath)
 autoload -Uz kde
 
-alias cat='bat '
-
-alias zz='z -'
+# Autocompletion {{{
 
 eval "$(register-python-argcomplete pipx)"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
+# }}}
+
+# vim:fileencoding=utf-8:foldmethod=marker
