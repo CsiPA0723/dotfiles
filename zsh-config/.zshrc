@@ -167,6 +167,20 @@ fi
 alias sudo='sudo '
 alias fwcli='sudo firewall-cmd '
 
+alias :q='exit'
+alias :qa='exit'
+alias :wq='exit'
+alias :wqa='exit'
+alias clr='clear'
+
+alias cat='bat '
+
+alias zz='z -'
+
+alias ssh='kitten ssh '
+alias kd='kitten diff '
+alias gd='git difftool --no-symlinks --dir-diff'
+
 # -----------------------------
 # Yazi
 # -----------------------------
@@ -199,20 +213,6 @@ alias lr='ll -R'
 alias lx='ll -X'
 
 alias tree='eza --tree'
-
-alias :q='exit'
-alias :qa='exit'
-alias :wq='exit'
-alias :wqa='exit'
-alias clr='clear'
-
-alias cat='bat '
-
-alias zz='z -'
-
-alias ssh='kitten ssh '
-alias d='kitten diff '
-alias gd='git difftool --no-symlinks --dir-diff'
 
 # }}}
 
