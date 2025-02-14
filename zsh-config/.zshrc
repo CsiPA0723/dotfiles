@@ -174,6 +174,8 @@ alias :wqa='exit'
 alias clr='clear'
 
 alias cat='bat '
+alias icat='kitten icat '
+alias pcat='zathura '
 
 alias zz='z -'
 
