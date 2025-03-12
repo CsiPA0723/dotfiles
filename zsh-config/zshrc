@@ -182,6 +182,7 @@ alias zz='z -'
 alias ssh='kitten ssh '
 alias kd='kitten diff '
 alias gd='git difftool --no-symlinks --dir-diff'
+alias arch='fastfetch -c neofetch'
 
 # -----------------------------
 # Yazi
