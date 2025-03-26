@@ -3,3 +3,13 @@ scrolloff = 10
 
 [preview]
 tab_size = 2
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*/"
+run = "git"
