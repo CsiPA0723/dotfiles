@@ -202,6 +202,8 @@ alias kd='kitten diff '
 alias gd='git difftool --no-symlinks --dir-diff'
 alias arch='fastfetch -c neofetch'
 
+alias oil='nvim +Oil'
+
 # -----------------------------
 # Yazi
 # -----------------------------
