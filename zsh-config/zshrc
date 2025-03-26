@@ -1,27 +1,9 @@
-ZLE_RPROMPT_INDENT=0
+# Zsh configuration {{{
 
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#8839ef'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=#e64553'
-
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by interactive shells
-#
-
-# -----------------
-# Zsh configuration
-# -----------------
-
-#
-# History
-#
+autoload -U promptinit; promptinit
 
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
-
-#
-# Input/output
-#
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
@@ -35,43 +17,31 @@ bindkey -v
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
 
-# -----------------
-# Zim configuration
-# -----------------
+#
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#8839ef'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=#e64553'
+
+#
+TRANSIENT_PROMPT_PROMPT=$'%F{${prompt_pure_colors[path]}}%~%f\n%{\C-M%}%(12V.%F{$prompt_pure_colors[virtualenv]}%12v%f .)%(?.%F{$prompt_pure_colors[prompt:success]}.%F{$prompt_pure_colors[prompt:error]})${prompt_pure_state[prompt]}%f '
+TRANSIENT_PROMPT_TRANSIENT_PROMPT='%(12V.%F{$prompt_pure_colors[virtualenv]}%12v%f .)%(?.%F{$prompt_pure_colors[prompt:success]}.%F{$prompt_pure_colors[prompt:error]})${prompt_pure_state[prompt]} %f'
+
+# }}}
+
+# Zim configuration {{{
 
 # Use degit instead of git as the default tool to install and update modules.
 #zstyle ':zim:zmodule' use 'degit'
 
-# --------------------
-# Module configuration
-# --------------------
-
-#
-# git
-#
-
-# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+# Set custom git prefix for the generated aliases. The default prefix is 'G'.
 #zstyle ':zim:git' aliases-prefix 'g'
-
-#
-# input
-#
 
 # Append `../` to your input for each `.` you type after an initial `..`
 #zstyle ':zim:input' double-dot-expand yes
-
-#
-# termtitle
-#
 
 # Set a custom terminal title format using prompt expansion escape sequences.
 # See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
 # If none is provided, the default '%n@%m: %~' is used.
 #zstyle ':zim:termtitle' format '%1~'
-
-#
-# zsh-autosuggestions
-#
 
 # Disable automatic widget re-binding on each precmd. This can be set when
 # zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
@@ -80,10 +50,6 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # Customize the style that the suggestions are shown with.
 # See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-
-#
-# zsh-syntax-highlighting
-#
 
 # Set what highlighters will be used.
 # See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
@@ -94,9 +60,8 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 #typeset -A ZSH_HIGHLIGHT_STYLES
 #ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
 
-# ------------------
-# Initialize modules
-# ------------------
+
+# Initialize modules {{{
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
@@ -116,14 +81,11 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-# ------------------------------
-# Post-init module configuration
-# ------------------------------
+# }}}
 
-#
+# Post-init module configuration {{{
+
 # zsh-history-substring-search
-#
-
 zmodload -F zsh/terminfo +p:terminfo
 # Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
 for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
@@ -131,7 +93,10 @@ for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search
 for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
-# }}} End configuration added by Zim install
+
+# }}}
+
+# }}}
 
 # Pacman hook {{{
 zshcache_time="$(date +%s%N)"
@@ -152,11 +117,6 @@ add-zsh-hook -Uz precmd rehash_precmd
 # }}}
 
 # Prompt & Colors {{{
-
-OMP_CONFIG=$HOME/Personal/CsiPA0723/home.omp.toml
-[[ -f $OMP_CONFIG ]] || OMP_CONFIG="https://raw.githubusercontent.com/CsiPA0723/csipa0723/main/home.omp.toml"
-
-eval "$(oh-my-posh init --config $OMP_CONFIG zsh)"
 
 export GREP_COLORS='ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36'
 
@@ -180,6 +140,24 @@ fi
 
 # }}}
 
+# Custoom Widgets {{{
+zoxide_run-cdi() {
+        local dir="$(eval "zoxide query -i")"
+
+        if [[ -z "$dir" ]]; then
+            zle redisplay
+            return 0
+        fi
+
+        builtin cd -- ${(q)dir}
+        zle reset-prompt
+        unset dir
+    }
+
+    zle -N zoxide_run-cdi
+    bindkey "^G" zoxide_run-cdi
+# }}}
+
 # Aliases {{{
 
 alias sudo='sudo '
@@ -201,6 +179,8 @@ alias ssh='kitten ssh '
 alias kd='kitten diff '
 alias gd='git difftool --no-symlinks --dir-diff'
 alias arch='fastfetch -c neofetch'
+
+alias oil='nvim +Oil'
 
 # -----------------------------
 # Yazi
@@ -237,12 +217,13 @@ alias tree='eza --tree'
 
 # }}}
 
+# Autocompletion {{{
+
 # KDE Logout function
 fpath=(~/.config/zsh-config/kde-logout $fpath)
 autoload -Uz kde
 
-# Autocompletion {{{
-
+# Python pipx
 eval "$(register-python-argcomplete pipx)"
 
 # Load Angular CLI autocompletion.
