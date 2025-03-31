@@ -5,11 +5,14 @@
 
 # Submodules
 !/nvim
+!/zsh-config
 
 # Dirs
 !/bash-config
 !/kitty
 !/lazygit
+!/MangoHud
+!/mpris-discord-rpc
 !/mpv
 !/neovide
 !/pipewire
@@ -18,7 +21,6 @@
 !/spicetify
 !/tmux
 /tmux/plugins
-!/zsh-config
 !/yazi
 /yazi/plugins
 /yazi/flavors
