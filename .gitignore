@@ -23,6 +23,7 @@
 !/yazi
 /yazi/plugins
 /yazi/flavors
+!/zsh-abbr
 
 # Files
 !/spotify-launcher.conf
