@@ -9,6 +9,9 @@
 
 # Dirs
 !/kitty
+kitty/neighboring_window.py
+kitty/relative_resize.py
+kitty/split_window.py
 !/lazygit
 !/MangoHud
 !/mpris-discord-rpc
