@@ -24,8 +24,6 @@ kitty/split_window.py
 !/tmux
 /tmux/plugins
 !/yazi
-/yazi/plugins
-/yazi/flavors
 !/zsh-abbr
 
 # Files
