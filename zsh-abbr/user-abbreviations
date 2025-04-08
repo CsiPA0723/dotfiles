@@ -1,4 +1,4 @@
-abbr "arch"="fastfetch -c neofetch.jsonc"
+abbr "btw"="fastfetch -c neofetch.jsonc"
 abbr "clr"="clear"
 abbr "e.todo"="nvim ~/Documents/todos.md"
 abbr "fwcli"="firewall-cmd"
