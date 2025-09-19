@@ -1,9 +1,9 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "63f9650"
-hash = "bf6f074cd41ee33c3360341d168f9733"
+rev = "d7588f6"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "d04a298"
-hash = "e6c5beeb1da3199355734273ee452a7f"
+rev = "3e6da98"
+hash = "1e2cc3f0f96197f3dac9591be50bb2af"
