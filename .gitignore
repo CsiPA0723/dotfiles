@@ -8,23 +8,24 @@
 !/zsh-config
 
 # Dirs
+!/git
 !/kitty
 kitty/neighboring_window.py
 kitty/relative_resize.py
 kitty/split_window.py
 !/lazygit
 !/MangoHud
-!/music-discord-rpc
-!/mpv
-!/neovide
-!/pipewire
-!/rog
-!/speech-dispatcher
-!/spicetify
 !/mpd
 /mpd/database
 /mpd/playlists/*
+!/mpv
+!/music-discord-rpc
+!/neovide
+!/pipewire
 !/rmpc
+!/rog
+!/speech-dispatcher
+!/spicetify
 !/tmux
 /tmux/plugins
 !/yazi
