@@ -1,6 +1,7 @@
 abbr "btw"="fastfetch -c neofetch.jsonc"
 abbr "clr"="clear"
 abbr "e.film"="nvim ~/Documents/watchlist.md"
+abbr "e.note"="nvim ~/Documents/note.md"
 abbr "e.todo"="nvim ~/Documents/todos.md"
 abbr "fwcli"="firewall-cmd"
 abbr "gd"="git difftool --no-symlinks --dir-diff"
