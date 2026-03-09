@@ -1,5 +1,6 @@
 abbr "btw"="fastfetch -c neofetch.jsonc"
 abbr "clr"="clear"
+abbr "ctl"="systemctl"
 abbr "e.film"="nvim ~/Documents/watchlist.md"
 abbr "e.note"="nvim ~/Documents/note.md"
 abbr "e.todo"="nvim ~/Documents/todos.md"
